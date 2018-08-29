@@ -1,6 +1,6 @@
 Naivecoin
 -----
-> JS 实现加密货币。翻译自[https://lhartikk.github.io/](https://lhartikk.github.io/)
+> JS 实现加密货币。翻译自[原文链接](https://lhartikk.github.io/)
 
 
 ### 简介
