@@ -7,7 +7,7 @@ NavieChain
 
 在本教程中，我们将从加密货币所需的一些基本概念入手，开始编码。这样的话，解释一些概念就会比较容易。
 
-我们将在本教程中构建的项目称为“Naivecoin”。编程语言是Typescript。从某些方面而言，Naivecoin是[Naivechain - 200行代码实现区块链](...)的扩展。    
+我们将在本教程中构建的项目称为“Naivecoin”。编程语言是Typescript。从某些方面而言，Naivecoin是[Naivechain - 200行代码实现区块链](../BlockChan200)的扩展。    
 
 Naivecoin 并不能当作一个可用于生产环境的加密货币的实现。它只是为了试图阐述加密货币的基本原则并以最简洁的方式实现出来。  
 
