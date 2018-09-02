@@ -145,6 +145,6 @@ const isValidTimestamp = (newBlock: Block, previousBlock: Block): boolean => {
 工作证明难题必须具备的一个重要特性是-- 难以解决，但易于验证。找到特定的SHA256哈希值是这种问题的一个很好的简单例子。  
 
 这一节，我们实现了难度方面的内容，节点现在必须“挖矿”才能向链中添加新块。在下一章中，我们将实现交易。  
-本节完成的[代码](https://github.com/lhartikk/naivecoin/tree/chapter2)  
+本节完整的[代码](https://github.com/lhartikk/naivecoin/tree/chapter2)  
 
 下一节：[交易1](./3-交易1.md)
