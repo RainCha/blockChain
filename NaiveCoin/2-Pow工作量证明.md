@@ -77,6 +77,7 @@ const findBlock = (
 
 #### 难度共识
 我们现在有办法找到并验证给定难度的哈希值，但难度如何确定？必须有一种方法让节点同意当前的难度。为此，我们介绍下一些用于计算网络中当前难度的新规则。  
+
 让我们为网络定义以下新常量
 * `BLOCK_GENERATION_INTERVAL`-- 定义找到一个块的频率。 （在比特币这个值是10分钟）
 * `DIFFICULTY_ADJUSTMENT_INTERVAL` -- 定义适应网络哈希值增加或减少的频率。 （在比特币中这个值是2016个块）  
@@ -90,6 +91,7 @@ const BLOCK_GENERATION_INTERVAL: number = 10;
 const DIFFICULTY_ADJUSTMENT_INTERVAL: number = 10;
 ```
 现在我们有办法就块的难度达成一致。对于生成的每10个块，我们检查生成这些块所花费的时间是大于还是小于预期时间。预期时间计算如下：BLOCK_GENERATION_INTERVAL * DIFFICULTY_ADJUSTMENT_INTERVAL.预期时间表示哈希值恰好与当前难度匹配的情况。  
+
 如果所花费的时间比预期的难度大至少两倍或更小，我们要么将难度增加或减少一。难度调整的代码如下：
 ```js
 const getDifficulty = (aBlockchain: Block[]): number => {
@@ -129,14 +131,20 @@ const isValidTimestamp = (newBlock: Block, previousBlock: Block): boolean => {
 
 #### 累积难度
 在区块链的第1节的版本中，我们总是选择“最长”的区块链是有效的。因为引入了`difficulty`，就需要改变一下策略。就目前而言，“正确”链条不是“最长”的链条，而是具有累积难度最大的链条。换句话说，正确的链是最耗资源（= hashRate * time）的链。  
+
 为了得到链的累积难度，我们计算每个块的`2^difficulty`并取所有这些数的总和。使用`2^difficulty`，是因为我们选择难度来表示必须以二进制格式为哈希前缀的零的数量。例如，如果我们比较5和11的难度，则需要2 ^（11-5）= 2^6 次或更多的工作才能找到具有近似难度的块。  
+
 在下面的例子中，"Chain B”是虽然块不多，但它是“正确“的链。
 ![longest_chain](../images/coin_2_img_2.png)
+
 在块的属性中 `difficulty`相对于`hash`(有效的hash)更重要。例如，如果`difficulty`是4并且块散列是000000a34c ...（=也满足`difficulty`为6的情况），但是在计算累积难度时仅考虑4。  
+
 这个属性也被称为“中本聪共识”，这是他/她创造了比特币时，最重要的发明之一。在分叉的情况下，矿工必须选择他们决定放置当前资源的链（= hashRate）。由于矿工的利益是生产将被纳入区块链的区块，矿工们会被激励最终选择相同的链条。
 
 #### 小结
 工作证明难题必须具备的一个重要特性是-- 难以解决，但易于验证。找到特定的SHA256哈希值是这种问题的一个很好的简单例子。  
+
 这一节，我们实现了难度方面的内容，节点现在必须“挖矿”才能向链中添加新块。在下一章中，我们将实现交易。  
 本节完成的[代码](https://github.com/lhartikk/naivecoin/tree/chapter2)  
+
 下一节：[交易1](./3-交易1.md)
