@@ -11,4 +11,4 @@
 3. [交易1](./NaiveCoin/3-交易1.md)
 4. [钱包](./NaiveCoin/4-钱包.md)
 5. [交易2](./NaiveCoin/5-交易2.md)
-6. [钱包的UI和区块链浏览器](./NaiveCoin/6-钱包的UI和区块链浏览器.md)
+6. [UI界面](./NaiveCoin/6-UI界面.md)
